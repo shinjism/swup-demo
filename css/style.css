@@ -1,0 +1,108 @@
+/* リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  line-height: 1.6;
+  background-color: #242422;
+  color: #f5f5f5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.15);
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+#play {
+  /* ページをスクロールしても右下に表示し続ける */
+  position: fixed;
+  right: 16px;
+  bottom: 96px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  line-height: 1;
+
+  /* ボタン内の文字列をMaterial Symbolsのアイコンとして表示する */
+  font-family: "Material Symbols Rounded";
+  font-size: 24px;
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 48;
+}
+
+main {
+  flex: 1;
+  min-height: 70vh;
+  padding: 40px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.15);
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+}
+
+/* Homeの背景動画を画面全体に固定する */
+.hero-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* --- ここからSwup用のページ遷移アニメーション --- */
+
+/*
+ * Swupがページ遷移を始めると、html要素に is-changing が付く。
+ * transition-fadeのopacity（透明度）を0.4秒かけて変化させる。
+ */
+html.is-changing .transition-fade {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+/*
+ * ページが切り替わる途中は、html要素に is-animating が付く。
+ * 差し替え対象を透明にすることで、フェードアウト／インを表現する。
+ */
+html.is-animating .transition-fade {
+  opacity: 0;
+}
