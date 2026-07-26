@@ -1,3 +1,29 @@
+# macOS
+.DS_Store
+
+# 環境変数・秘密情報
+.env
+.env.*
+!.env.example
+
+# ログ
+*.log
+logs/
+
+# 依存パッケージ
+node_modules/
+
+# ビルド・テスト生成物
+dist/
+build/
+coverage/
+
+# キャッシュ・一時ファイル
+.cache/
+*.tmp
+*.swp
+*~
+
 # 利用者が各自用意するメディアファイル
 /audio/
 /video/
