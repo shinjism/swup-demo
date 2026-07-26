@@ -24,6 +24,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   padding: 24px;
   background-color: rgba(0, 0, 0, 0.15);
   text-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
@@ -40,11 +41,6 @@ nav ul {
 }
 
 #play {
-  /* ページをスクロールしても右下に表示し続ける */
-  position: fixed;
-  right: 16px;
-  bottom: 96px;
-
   appearance: none;
   -webkit-appearance: none;
   border: 0;
@@ -61,8 +57,20 @@ nav ul {
 
   /* ボタン内の文字列をMaterial Symbolsのアイコンとして表示する */
   font-family: "Material Symbols Rounded";
-  font-size: 24px;
+  font-size: 20px;
   font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 48;
+}
+
+@media (max-width: 399px) {
+  header {
+    gap: 16px;
+    padding: 16px;
+    font-size: smaller;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
 }
 
 main {
